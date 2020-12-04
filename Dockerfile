@@ -1,11 +1,11 @@
 FROM golang:1.14
 
 RUN mkdir /app
-ADD entrypoint /app
+ADD go-go-beego-postgresql /app
 WORKDIR /app
 
 EXPOSE 8080
 
-RUN chmod u+x /app/entrypoint
+RUN chmod u+x /app/go-go-beego-postgresql
 
-ENTRYPOINT ["/app/entrypoint"]
+ENTRYPOINT ["/app/go-go-beego-postgresql"]
