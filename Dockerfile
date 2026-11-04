@@ -1,11 +1,13 @@
-FROM golang:1.17.9
+FROM public.ecr.aws/docker/library/alpine:3.22.4
 
-RUN mkdir /app
-ADD go-go-beego-postgresql /app
-WORKDIR /app
+WORKDIR /app/go-go-beego-postgresql
+
+COPY go-binary .
+
+RUN chmod +x go-binary
+
+USER 65534:65534
 
 EXPOSE 8080
 
-RUN chmod u+x /app/go-go-beego-postgresql
-
-ENTRYPOINT ["/app/go-go-beego-postgresql"]
+ENTRYPOINT ["./go-binary"]
